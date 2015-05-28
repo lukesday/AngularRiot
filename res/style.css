@@ -1,11 +1,20 @@
-.winner{
-    background:greenyellow;
-}
+.winner {
+  background: greenyellow; }
 
-.loser{
-    background: red;
-}
+.loser {
+  background: red; }
 
 body {
-    margin-top: 50px;
-}
+  margin-top: 50px; }
+
+.player div {
+  height: 150px;
+  text-align: right; }
+  .player div img {
+    width: 100px;
+    height: auto; }
+  .player div h3 {
+    text-align: left;
+    font-size: 3.5em; }
+
+/*# sourceMappingURL=style.css.map */

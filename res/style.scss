@@ -1,0 +1,27 @@
+.winner{
+  background:greenyellow;
+}
+
+.loser{
+  background: red;
+}
+
+body {
+  margin-top: 50px;
+}
+
+.player div{
+  height:150px;
+  text-align:right;
+
+  & img{
+    width:100px;
+    height:auto;
+  }
+
+  & h3{
+    text-align:left;
+    font-size:3.5em;
+  }
+
+}

@@ -3,10 +3,13 @@
     <span class="sr-only">Error:</span>
     {{player.error}}
 </div>
-<div class="col-xs-6">
-    <ul ng-show="player.user.id">
-        <li>id: {{player.user.id}}</li>
-        <li>name: {{player.user.name}}</li>
+<div class="row player">
+    <div class="col-sm-3">
+        <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/profileicon/{{player.user.profileIconId}}.png" alt="icon">
+    </div>
+    <div class="col-sm-9">
+        <h3>{{player.user.name}}</h3>
+    </div>
     </ul>
 </div>
 
