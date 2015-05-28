@@ -1,0 +1,23 @@
+<div class="alert alert-danger col-xs-12" role="alert" ng-show="player.error">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="sr-only">Error:</span>
+    {{player.error}}
+</div>
+<div class="col-xs-6">
+    <ul ng-show="player.user.id">
+        <li>id: {{player.user.id}}</li>
+        <li>name: {{player.user.name}}</li>
+    </ul>
+</div>
+
+<div class="col-xs-12">
+    <ul ng-repeat="match in player.matches" ng-class="match.participants[0].stats.winner ? 'winner' : 'loser'  " ng-cloak>
+        <li>Match Mode: {{match.matchMode}}</li>
+        <li>Match Type: {{match.matchType}}</li>
+        <li>Gold Earned: {{match.participants[0].stats.goldEarned}}</li>
+        <li>Magic Damage Dealt: {{match.participants[0].stats.magicDamageDealt}}</li>
+        <li>{{match.matchCreation | date}}</li>
+        <li>{{match.matchDuration | riotTime}}</li>
+        <li>{{match.participants[0].stats.winner | iif : "Victory" : "Defeat"}}</li>
+    </ul>
+</div>

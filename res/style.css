@@ -1,0 +1,11 @@
+.winner{
+    background:greenyellow;
+}
+
+.loser{
+    background: red;
+}
+
+body {
+    margin-top: 50px;
+}
