@@ -17,7 +17,15 @@
             }
 
 
-        }
+        };
+
+        vm.searchThis = function(player){
+
+            vm.searchable = player;
+
+            vm.searchPlayer();
+
+        };
 
     }]);
 

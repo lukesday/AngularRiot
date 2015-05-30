@@ -16,7 +16,7 @@ if (isset($_REQUEST['id'])){
 
 
         $array[$champ->id] = array(
-            "name" => $champ->name,
+            "name" => $champ->key,
             "id" => $champ->id
 
             );

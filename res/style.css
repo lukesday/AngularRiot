@@ -1,11 +1,65 @@
 .mh-container {
   width: 960px;
-  margin: 50px auto; }
+  margin: 0px auto; }
 
 header {
   width: 100%;
-  padding: 20px;
+  padding: 20px 0 0 0;
   float: left; }
+
+.search {
+  width: 100%;
+  text-align: center; }
+  .search input[type="text"] {
+    width: 400px;
+    height: 40px;
+    font-size: 20px;
+    line-height: 40px;
+    padding: 0 10px;
+    border: 0;
+    border-bottom: 1px solid crimson;
+    box-shadow: none; }
+  .search .text {
+    float: left;
+    margin: 20px 0 50px 100px; }
+  .search input[type="submit"] {
+    height: 40px;
+    font-size: 20px;
+    line-height: 40px;
+    border: 0;
+    border-bottom: 1px solid crimson;
+    padding: 0 20px;
+    background: crimson;
+    box-shadow: none; }
+  .search .submit {
+    float: left;
+    margin: 20px 0 50px -2px; }
+
+.try {
+  float: left;
+  background: darkslategrey;
+  height: 50px;
+  width: 100%; }
+  .try span {
+    color: white;
+    float: left;
+    line-height: 50px; }
+  .try ul {
+    float: left;
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+    .try ul li {
+      float: left;
+      display: inline;
+      color: white;
+      line-height: 50px;
+      margin: 0 10px;
+      padding: 0 10px;
+      cursor: pointer; }
+      .try ul li:hover {
+        color: lightgray;
+        background-color: #3b6363; }
 
 .player {
   height: 150px;
@@ -117,6 +171,10 @@ header {
 
 .time {
   width: 100px; }
+
+footer {
+  margin-top: 50px;
+  float: left; }
 
 @-webkit-keyframes webkit-rotate {
   from {
