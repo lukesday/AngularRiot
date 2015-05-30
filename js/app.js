@@ -32,4 +32,18 @@
         };
     });
 
+    app.filter('imageUrl', function(){
+        return function(input) {
+
+            var string =  'http://ddragon.leagueoflegends.com/cdn/4.19.3/img/item/' + encodeURIComponent(input) + '.png';
+
+            var placeholder = 'http://placehold.it/64&text=no+item';
+
+            var dfg = 'https://cdn.championcounter.com/images/items/3128-deathfiregrasp.png?v=1421912021000';
+
+            return input == 0 ? placeholder : (input == 3128 ? dfg : string);
+
+        };
+    });
+
 })();

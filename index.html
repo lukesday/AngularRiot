@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <title>League of Legends || Summoner Search</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="res/style.css"/>
     <!--<base href="/index.html">-->
 </head>
 <body ng-app="leagueApp">
 
-<div class="container">
+<div class="mh-container">
 
-    <div class="jumbotron" ng-controller="MainController as main">
-        <h1>{{main.title}}</h1>
+    <header ng-controller="MainController as main">
+        <h1>LoL Match History</h1>
         <p>This application will search for your username and return user details and your recently played matches</p>
 
         <form class="col-xs-6" name="userSearch" ng-submit="userSearch.$valid && main.searchPlayer()" novalidate>
@@ -20,9 +21,13 @@
                 <input id="search" type="text" ng-model="main.searchable" required><input type="submit" value="Search">
             </div>
         </form>
-    </div>
+    </header>
 
     <article data-ng-view></article>
+
+    <footer><p><strong>LoL Match History</strong> isn't endorsed by Riot Games and doesn't reflect the views or opinions
+        of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and
+        Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.</p></footer>
 
 </div>
 

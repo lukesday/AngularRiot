@@ -2,52 +2,6 @@
 
     var app = angular.module('leagueApp');
 
-    app.factory('getPlayerInfo', ['$http', function($http){
-
-        return {
-            search: function (searchName) {
-
-                vm = this;
-
-                console.log("I'm using a factory woot!");
-
-
-                vm.searchName = searchName;
-                vm.region = 'euw';
-                vm.key = '?api_key=b66c38fa-0d8e-4eec-8c6d-e1aeee178df6';
-                vm.startUrl = 'https://' + vm.region + '.api.pvp.net/api/lol/' + vm.region;
-                vm.playerUrl = '/v1.4/summoner/by-name/';
-
-                var url = vm.startUrl + vm.playerUrl + vm.searchName + vm.key;
-
-                return $http.get(url)
-                    .success(function (data) {
-
-                        getPlayerInfo.data
-
-                    }).error(function (status) {
-
-                        switch (status) {
-
-                            case 404:
-
-                                console.log('Summer not found');
-
-                                break;
-                            default:
-
-                                console.log('Unknown Error');
-                        }
-
-                    });
-
-            }
-
-
-        }
-
-    }]);
-
     app.service('playerService', ['$q', '$http', function ($q, $http) {
         var region = 'euw',
             key = '?api_key=b66c38fa-0d8e-4eec-8c6d-e1aeee178df6',
@@ -92,7 +46,7 @@
 
         this.getHistory = function (id) {
             var defer = $q.defer(),
-                url = startUrl + historyUrl + id + key;
+                url = './server/?id=' + id;
 
             $http.get(url)
                 .success(function (response) {
@@ -108,5 +62,33 @@
         };
 
     }]);
+
+    app.service('gameInfo',  ['$q', '$http', function ($q, $http) {
+
+        var region = 'euw',
+            key = '?api_key=b66c38fa-0d8e-4eec-8c6d-e1aeee178df6',
+            startUrl = 'https://global.api.pvp.net/api/lol/static-data/' + region,
+            champUrl = '/v1.2/champion/';
+
+        this.getChamp = function (id) {
+            var defer = $q.defer(),
+                url = startUrl + champUrl + encodeURIComponent(id) + key + '&champData=recommended';
+
+            $http.get(url, {cache: true})
+                .success(function (response) {
+                    defer.resolve({
+                        data: response
+                    });
+                })
+                .error(function (err) {
+                    defer.reject(err);
+                });
+
+            return defer.promise;
+        };
+
+    }]);
+
+
 
 })();

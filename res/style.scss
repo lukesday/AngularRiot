@@ -1,27 +1,215 @@
+.mh-container{
+  width:960px;
+  margin:50px auto;
+}
+
+header{
+  width:100%;
+  padding:20px;
+  float:left
+}
+
+.player{
+  height:150px;
+  width:100%;
+  padding:20px;
+  float:left;
+
+  & .icon{
+    float:left;
+    width:150px;
+    height:100%;
+    & img{
+      width:100px;
+      height:100px;
+    }
+  }
+
+  & .name {
+    float: left;
+    width: 400px;
+    height:100%;
+    & h3 {
+      line-height: 50px;
+      text-align: left;
+      font-size: 3.5em;
+    }
+  }
+
+}
+
+$resultHeight: 120px;
+$imageHeight: 72px;
+$imageMargin: ($resultHeight - $imageHeight)/2;
+
+.results{
+  list-style: none;
+  padding:5px;
+  background-color:lightgrey;
+  border:2px solid grey;
+  float:left;
+
+  & > li{
+    margin:0;
+    height:$resultHeight;
+    overflow:hidden;
+    border-bottom:1px solid grey;
+    border-right:1px solid grey;
+    border-left:1px solid grey;
+    background:white;
+
+    &:first-child{
+      border-top:1px solid grey;
+    }
+  }
+
+}
+
+.victory{
+  float:left;
+  width:20px;
+  height:100%;
+}
+
 .winner{
-  background:greenyellow;
+  @extend .victory;
+  background: greenyellow;
 }
 
 .loser{
+  @extend .victory;
   background: red;
 }
 
-body {
-  margin-top: 50px;
+.fa-spinner{
+  padding:50px;
+  width:100%;
+  text-align:center;
 }
 
-.player div{
-  height:150px;
-  text-align:right;
+.champ{
+  height:100%;
+  width:150px;
+  float:left;
 
-  & img{
-    width:100px;
-    height:auto;
+  & > img{
+    float:left;
+    height: $imageHeight;
+    margin: $imageMargin 5px $imageMargin $imageMargin;
   }
 
-  & h3{
-    text-align:left;
-    font-size:3.5em;
+  & > div{
+    float:left;
+    height:$imageHeight;
+    margin:$imageMargin 0;
+    width:$imageMargin;
+
+    & > img{
+      float:left;
+      height:($imageHeight / 2 - 2px);
+      width:auto;
+
+      &:first-child{
+        margin-bottom:4px;
+      }
+
+    }
+
   }
 
+}
+
+.mode{
+  float:left;
+  width:150px;
+  height:100%;
+  text-align:center;
+  display: table;
+  font-size:1.2em;
+
+  & span{
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  & small{
+    font-size:0.7em;
+  }
+
+}
+
+.items{
+  float:left;
+  height:100%;
+  list-style:none;
+  padding:0 20px;
+
+  & > li {
+    display: inline;
+    float:left;
+    padding:1px;
+
+    & > img{
+      height: ($imageHeight - 30px);
+      margin: ($imageMargin + 15px) 0;
+    }
+
+    &:last-child{
+      padding-left:5px;
+    }
+
+  }
+}
+
+.kda {
+  @extend .mode;
+  width:50px;
+}
+
+.gold{
+  @extend .mode;
+  width:100px;
+}
+
+.time{
+  @extend .mode;
+  width:100px;
+}
+
+// Spinner Animations
+
+@-webkit-keyframes webkit-rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.fa-spinner{
+  padding:50px;
+  width:100%;
+  text-align:center;
+  -webkit-animation-name:             webkit-rotate;
+  animation-name:             rotate;
+  -webkit-animation-duration:         1.5s;
+  animation-duration:         1.5s;
+  -webkit-animation-iteration-count:  infinite;
+  animation-iteration-count:  infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
 }

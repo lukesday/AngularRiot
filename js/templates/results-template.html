@@ -3,24 +3,41 @@
     <span class="sr-only">Error:</span>
     {{player.error}}
 </div>
-<div class="row player">
-    <div class="col-sm-3">
-        <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/profileicon/{{player.user.profileIconId}}.png" alt="icon">
+<div class="player" ng-show="player.user.name">
+    <div class="icon">
+        <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.10.1/img/profileicon/{{player.user.profileIconId}}.png" alt="icon">
     </div>
-    <div class="col-sm-9">
+    <div class="name">
         <h3>{{player.user.name}}</h3>
     </div>
-    </ul>
 </div>
 
-<div class="col-xs-12">
-    <ul ng-repeat="match in player.matches" ng-class="match.participants[0].stats.winner ? 'winner' : 'loser'  " ng-cloak>
-        <li>Match Mode: {{match.matchMode}}</li>
-        <li>Match Type: {{match.matchType}}</li>
-        <li>Gold Earned: {{match.participants[0].stats.goldEarned}}</li>
-        <li>Magic Damage Dealt: {{match.participants[0].stats.magicDamageDealt}}</li>
-        <li>{{match.matchCreation | date}}</li>
-        <li>{{match.matchDuration | riotTime}}</li>
-        <li>{{match.participants[0].stats.winner | iif : "Victory" : "Defeat"}}</li>
-    </ul>
-</div>
+<i class="fa fa-spinner fa-3x" ng-show="player.loading"></i>
+
+<ul class="col-xs-12 results" ng-show="player.matches.length">
+    <li ng-repeat="match in player.matches | orderBy:'-matchCreation'" ng-cloak>
+        <div ng-class="match.participants[0].stats.winner ? 'winner' : 'loser'  "></div>
+        <div class="champ">
+            <img ng-src="{{match.participants[0].champImage}}" alt="champion">
+
+            <div>
+                <img ng-src="{{match.participants[0].spellImg1}}" alt=""/>
+                <img ng-src="{{match.participants[0].spellImg2}}" alt=""/>
+            </div>
+        </div>
+        <div class="mode"><span>{{match.matchMode}}<br>
+            <small>{{match.queueType}}</small></span></div>
+        <ul class="items">
+            <li><img ng-src="{{match.participants[0].stats.item0 | imageUrl}}" alt="item"></li>
+            <li><img ng-src="{{match.participants[0].stats.item1 | imageUrl}}" alt="item"></li>
+            <li><img ng-src="{{match.participants[0].stats.item2 | imageUrl}}" alt="item"></li>
+            <li><img ng-src="{{match.participants[0].stats.item3 | imageUrl}}" alt="item"></li>
+            <li><img ng-src="{{match.participants[0].stats.item4 | imageUrl}}" alt="item"></li>
+            <li><img ng-src="{{match.participants[0].stats.item5 | imageUrl}}" alt="item"></li>
+            <li><img ng-src="{{match.participants[0].stats.item6 | imageUrl}}" alt="item"></li>
+        </ul>
+        <div class="kda"><span>{{match.participants[0].stats.kills}}/{{match.participants[0].stats.deaths}}/{{match.participants[0].stats.assists}}</span></div>
+        <div class="gold"><span>{{match.participants[0].stats.goldEarned}}(g)<br><small>{{match.participants[0].stats.minionsKilled}}(m)</small></span></div>
+        <div class="time"><span>{{match.matchDuration | riotTime}}<br><small>{{match.matchCreation | date}}</small></span></div>
+    </li>
+</ul>
