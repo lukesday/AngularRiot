@@ -36,8 +36,7 @@
         pm.user = [];
         pm.error;
         pm.loading = false;
-
-        console.log(pm.loading);
+        pm.empty = false;
 
         pm.searchPlayer = function(searchName){
 
@@ -45,10 +44,11 @@
             pm.user = [];
             pm.loading = true;
 
-            console.log(pm.loading);
+            pm.empty = false;
 
             playerService.getPlayer(searchName)
                 .then(function(response){
+
 
                     pm.user = response.data[searchName.toLowerCase()];
 
@@ -57,14 +57,14 @@
 
                             pm.matches = response.data.matches;
 
-                            console.log((pm.matches[0].matchVersion).split(".")[0]);
+                            //console.log((pm.matches[0].matchVersion).split(".")[0]);
+
+                            pm.matches ? (pm.empty = false) : (pm.empty = true);
 
                         })
                         .finally(function(){
 
                             pm.loading = false;
-
-                            console.log(pm.loading);
 
                         });
 
@@ -72,6 +72,7 @@
                 function(err){
                     console.log(err.message);
                     pm.error = err.message;
+                    pm.loading = false;
                 });
 
         };

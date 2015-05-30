@@ -14,6 +14,12 @@
 
 <i class="fa fa-spinner fa-3x" ng-show="player.loading"></i>
 
+<div class="alert alert-danger col-xs-12" role="alert" ng-show="player.empty">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="sr-only">Error:</span>
+    This player has no recent games.
+</div>
+
 <ul class="col-xs-12 results" ng-show="player.matches.length">
     <li ng-repeat="match in player.matches | orderBy:'-matchCreation'" ng-cloak>
         <div ng-class="match.participants[0].stats.winner ? 'winner' : 'loser'  "></div>

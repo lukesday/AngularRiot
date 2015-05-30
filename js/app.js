@@ -35,7 +35,7 @@
     app.filter('imageUrl', function(){
         return function(input) {
 
-            var string =  'http://ddragon.leagueoflegends.com/cdn/4.19.3/img/item/' + encodeURIComponent(input) + '.png';
+            var string =  'http://ddragon.leagueoflegends.com/cdn/5.10.1/img/item/' + encodeURIComponent(input) + '.png';
 
             var placeholder = 'http://placehold.it/64&text=no+item';
 

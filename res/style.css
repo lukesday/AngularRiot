@@ -176,6 +176,9 @@ footer {
   margin-top: 50px;
   float: left; }
 
+.alert {
+  margin-top: 50px; }
+
 @-webkit-keyframes webkit-rotate {
   from {
     -webkit-transform: rotate(0deg);
