@@ -70,9 +70,9 @@
             startUrl = 'https://global.api.pvp.net/api/lol/static-data/' + region,
             champUrl = '/v1.2/champion/';
 
-        this.getChamp = function (id) {
+        this.getChamp = function () {
             var defer = $q.defer(),
-                url = startUrl + champUrl + encodeURIComponent(id) + key + '&champData=recommended';
+                url = startUrl + champUrl + key;
 
             $http.get(url, {cache: true})
                 .success(function (response) {

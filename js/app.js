@@ -9,6 +9,11 @@
                 controller: 'PlayerController',
                 controllerAs: 'player'
             }).
+            when('/champs', {
+                templateUrl: 'js/templates/champlist-template.html',
+                controller: 'ChampController',
+                controllerAs: 'champCtrl'
+            }).
             otherwise({ // Default Route
                 redirectTo: '/'
             });

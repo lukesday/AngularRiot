@@ -86,4 +86,18 @@
 
     }]);
 
+    app.controller('ChampController', ['gameInfo', function(gameInfo){
+
+        var cm = this;
+
+        cm.champs = [];
+
+        gameInfo.getChamp()
+            .then(function(response){
+                cm.champs = response.data.data;
+                console.log(cm.champs);
+            })
+
+    }]);
+
 })();
