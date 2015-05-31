@@ -215,10 +215,12 @@ footer {
   margin: 20px 0 0 0;
   text-align: center; }
   .champList li {
-    float: left;
     display: inline;
-    padding: 0;
-    margin: 0; }
+    padding: 0; }
+    .champList li img {
+      height: 88px;
+      width: auto;
+      padding: 5px; }
 
 @-webkit-keyframes webkit-rotate {
   from {

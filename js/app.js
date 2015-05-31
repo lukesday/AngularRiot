@@ -14,6 +14,11 @@
                 controller: 'ChampController',
                 controllerAs: 'champCtrl'
             }).
+            when('/champ/:id', {
+                templateUrl: 'championProfile-template.html',
+                controller: 'champProfileController',
+                controllerAs: 'profile'
+            }),
             otherwise({ // Default Route
                 redirectTo: '/'
             });
