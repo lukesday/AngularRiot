@@ -4,12 +4,41 @@
 
 header {
   width: 100%;
-  padding: 20px 0 0 0;
+  padding: 0 0 0 0;
   float: left; }
+  header h1 {
+    float: left;
+    padding-top: 50px;
+    width: 100%; }
+
+.experiment {
+  width: 100%;
+  height: 30px;
+  padding: 5px;
+  background: darkslategrey;
+  color: white;
+  text-align: center;
+  float: left; }
+  .experiment p {
+    line-height: 20px;
+    float: right; }
+  .experiment a {
+    display: block;
+    line-height: 20px;
+    height: 20px;
+    background: white;
+    color: black;
+    margin: 0 20px 0 20px;
+    padding: 0px 5px;
+    float: right;
+    text-decoration: none; }
+    .experiment a:hover {
+      background: lightgrey; }
 
 .search {
   width: 100%;
-  text-align: center; }
+  text-align: center;
+  floatt: left; }
   .search input[type="text"] {
     width: 400px;
     height: 40px;

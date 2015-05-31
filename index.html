@@ -12,6 +12,12 @@
 
         <header ng-controller="MainController as main">
 
+            <div class="experiment" ng-show="main.show">
+                <div class="mh-container">
+                    <p>This application is currently under construction, expect lots of bugs! <a href ng-click="main.show = false">Okay</a></p>
+                </div>
+            </div>
+
             <div class="mh-container">
                 <h1>LoL Match History</h1>
                 <p>This application will search for your username and return user details and your recently played matches</p>

@@ -33,15 +33,27 @@
     });
 
     app.filter('imageUrl', function(){
-        return function(input) {
+        return function(input, version) {
 
-            var string =  'http://ddragon.leagueoflegends.com/cdn/5.10.1/img/item/' + encodeURIComponent(input) + '.png';
+            version = version.split(".")[0];
+
+            var specific;
+
+            if (version >= 5){
+
+                specific = "5.10.1";
+
+            }else{
+
+                specific = "4.17.1";
+
+            }
+
+            var string =  'http://ddragon.leagueoflegends.com/cdn/' + specific + '/img/item/' + encodeURIComponent(input) + '.png';
 
             var placeholder = 'http://placehold.it/64&text=no+item';
 
-            var dfg = 'https://cdn.championcounter.com/images/items/3128-deathfiregrasp.png?v=1421912021000';
-
-            return input == 0 ? placeholder : (input == 3128 ? dfg : string);
+            return input == 0 ? placeholder : string;
 
         };
     });

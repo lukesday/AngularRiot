@@ -34,13 +34,13 @@
         <div class="mode"><span>{{match.matchMode}}<br>
             <small>{{match.queueType}}</small></span></div>
         <ul class="items">
-            <li><img ng-src="{{match.participants[0].stats.item0 | imageUrl}}" alt="item"></li>
-            <li><img ng-src="{{match.participants[0].stats.item1 | imageUrl}}" alt="item"></li>
-            <li><img ng-src="{{match.participants[0].stats.item2 | imageUrl}}" alt="item"></li>
-            <li><img ng-src="{{match.participants[0].stats.item3 | imageUrl}}" alt="item"></li>
-            <li><img ng-src="{{match.participants[0].stats.item4 | imageUrl}}" alt="item"></li>
-            <li><img ng-src="{{match.participants[0].stats.item5 | imageUrl}}" alt="item"></li>
-            <li><img ng-src="{{match.participants[0].stats.item6 | imageUrl}}" alt="item"></li>
+            <li><img ng-src="{{match.participants[0].stats.item0 | imageUrl : match.matchVersion}}" alt="item"></li>
+            <li><img ng-src="{{match.participants[0].stats.item1 | imageUrl : match.matchVersion}}" alt="item"></li>
+            <li><img ng-src="{{match.participants[0].stats.item2 | imageUrl : match.matchVersion}}" alt="item"></li>
+            <li><img ng-src="{{match.participants[0].stats.item3 | imageUrl : match.matchVersion}}" alt="item"></li>
+            <li><img ng-src="{{match.participants[0].stats.item4 | imageUrl : match.matchVersion}}" alt="item"></li>
+            <li><img ng-src="{{match.participants[0].stats.item5 | imageUrl : match.matchVersion}}" alt="item"></li>
+            <li><img ng-src="{{match.participants[0].stats.item6 | imageUrl : match.matchVersion}}" alt="item"></li>
         </ul>
         <div class="kda"><span>{{match.participants[0].stats.kills}}/{{match.participants[0].stats.deaths}}/{{match.participants[0].stats.assists}}</span></div>
         <div class="gold"><span>{{match.participants[0].stats.goldEarned}}(g)<br><small>{{match.participants[0].stats.minionsKilled}}(m)</small></span></div>

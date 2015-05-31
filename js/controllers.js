@@ -8,6 +8,7 @@
 
         vm.title = "Welcome";
         vm.searchable = "";
+        vm.show = true;
 
         vm.searchPlayer = function(){
 
@@ -57,7 +58,7 @@
 
                             pm.matches = response.data.matches;
 
-                            //console.log((pm.matches[0].matchVersion).split(".")[0]);
+                            console.log((pm.matches[0].matchVersion).split(".")[0]);
 
                             pm.matches ? (pm.empty = false) : (pm.empty = true);
 
