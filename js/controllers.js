@@ -1,8 +1,11 @@
 (function(){
 
-    var app = angular.module('leagueApp');
+    angular.module('leagueApp')
+        .controller('MainController',['$location', MainController])
+        .controller('PlayerController',[ 'playerService', 'gameInfo', '$routeParams', PlayerController])
+        .controller('ChampController', ['gameInfo', ChampController]);
 
-    app.controller('MainController',['$location', function($location){
+    function MainController($location){
 
         vm = this;
 
@@ -28,14 +31,14 @@
 
         };
 
-    }]);
+    };
 
-    app.controller('PlayerController',[ 'playerService', 'gameInfo', '$routeParams',  function( playerService, gameInfo, $routeParams){
+    function PlayerController( playerService, gameInfo, $routeParams){
 
         pm = this;
         pm.matches = [];
         pm.user = [];
-        pm.error;
+        pm.error = "";
         pm.loading = false;
         pm.empty = false;
 
@@ -84,9 +87,9 @@
         }
 
 
-    }]);
+    };
 
-    app.controller('ChampController', ['gameInfo', function(gameInfo){
+     function ChampController(gameInfo){
 
         var cm = this;
 
@@ -96,8 +99,8 @@
             .then(function(response){
                 cm.champs = response.data.data;
                 console.log(cm.champs);
-            })
+            });
 
-    }]);
+    };
 
 })();
