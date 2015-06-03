@@ -61,7 +61,7 @@
 
             var string =  'http://ddragon.leagueoflegends.com/cdn/' + specific + '/img/item/' + encodeURIComponent(input) + '.png';
 
-            var placeholder = 'http://placehold.it/64&text=no+item';
+            var placeholder = 'https://placeholdit.imgix.net/~text?txtsize=15&txt=no+item&w=64&h=64';
 
             return input == 0 ? placeholder : string;
 
