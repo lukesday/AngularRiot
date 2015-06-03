@@ -25,7 +25,7 @@
             });
 
         $locationProvider.html5Mode(false);
-    };
+    }
 
 
 })();

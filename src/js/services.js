@@ -6,8 +6,7 @@
         var region = 'euw',
             key = '?api_key=b66c38fa-0d8e-4eec-8c6d-e1aeee178df6',
             startUrl = 'https://' + region + '.api.pvp.net/api/lol/' + region,
-            playerUrl = '/v1.4/summoner/by-name/',
-            historyUrl = '/v2.2/matchhistory/';
+            playerUrl = '/v1.4/summoner/by-name/'
 
         this.getPlayer = function (username) {
             var defer = $q.defer(),
